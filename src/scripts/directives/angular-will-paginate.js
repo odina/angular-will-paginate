@@ -1,5 +1,5 @@
 'use strict';
-angular.module('will_paginate')
+angular.module('willPaginate')
 .run(['$templateCache', function($templateCache){
   $templateCache.put('template/will_paginate/paginator.html',
   '<ul class="{{options.paginationClass}}">' +

@@ -7,8 +7,8 @@
  */
 (function (window, document, undefined) {
   'use strict';
-  angular.module('will_paginate', []);
-  angular.module('will_paginate').run([
+  angular.module('willPaginate', []);
+  angular.module('willPaginate').run([
     '$templateCache',
     function ($templateCache) {
       $templateCache.put('template/will_paginate/paginator.html', '<ul class="{{options.paginationClass}}">' + '  <li class="prev" ng-class="{true:\'disabled\'}[params.currentPage == 1]"><span>{{options.previousLabel}}</span></li>' + '  <li ng-class="{active:params.currentPage == page.value, disabled:page.kind == \'gap\' }" ng-repeat-start="page in collection">' + '    <span ng-show="params.currentPage == page.value">{{page.value}}</span>' + '    <a ng-hide="params.currentPage == page.value" ng-click="getPage(page.value)">{{page.value}}</a>' + '  </li>' + '  <li ng-repeat-end></li>' + '  <li class="next" ng-class="{true:\'disabled\'}[params.currentPage == params.totalPages]">' + '    <a ng-hide="params.currentPage == params.totalPages" ng-click="getPage(params.currentPage + 1)">{{options.nextLabel}}</a>' + '    <span ng-show="params.currentPage == params.totalPages">{{options.nextLabel}}</span>' + '  </li>' + '</ul>');

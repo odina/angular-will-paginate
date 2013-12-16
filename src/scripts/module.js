@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('will_paginate', []);
+angular.module('willPaginate', []);
