@@ -1,5 +1,5 @@
 {
-  "name": "will-paginate-angularjs",
+  "name": "angular-will-paginate",
   "version": "0.1.0",
   "dependencies": {
     "angular": "~1.2.4"
@@ -8,7 +8,7 @@
     "angular-mocks": "~1.2.4",
     "jquery": "~2.0.3"
   },
-  "homepage": "https://github.com/heavysixer/will_paginate-angularjs",
+  "homepage": "https://github.com/heavysixer/angular-will-paginate",
   "authors": [
     "heavysixer <info@humansized.com>"
   ],

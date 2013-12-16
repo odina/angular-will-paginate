@@ -1,12 +1,12 @@
 {
-  "name": "will-paginate-angularjs",
+  "name": "angular-will-paginate",
   "version": "0.1.0",
   "description": "AngularJS directive for will_paginate collections.",
   "keywords": [
     "angular","will_paginate","willpaginate","will-paginate","angularjs"
   ],
-  "homepage": "https://github.com/heavysixer/will_paginate-angularjs",
-  "bugs": "https://github.com/heavysixer/will_paginate-angularjs/issues",
+  "homepage": "https://github.com/heavysixer/angular-will-paginate",
+  "bugs": "https://github.com/heavysixer/angular-will-paginate/issues",
   "author": {
     "name": "Mark Daggett",
     "email": "info@humansized.com",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heavysixer/will_paginate-angularjs"
+    "url": "https://github.com/heavysixer/angular-will-paginate"
   },
   "licenses": [
     {

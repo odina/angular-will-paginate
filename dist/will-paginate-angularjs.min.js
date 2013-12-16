@@ -1,7 +1,7 @@
 /**
- * will-paginate-angularjs
+ * angular-will-paginate
  * @version v0.1.0 - 2013-12-16
- * @link https://github.com/heavysixer/will_paginate-angularjs
+ * @link https://github.com/heavysixer/angular-will-paginate
  * @author Mark Daggett <info@humansized.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */

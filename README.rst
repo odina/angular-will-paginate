@@ -1,4 +1,4 @@
-will_paginate-angularjs
+angular-will-paginate
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 *This directive is very much a work in progress*
