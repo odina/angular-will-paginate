@@ -1,0 +1,40 @@
+{
+  "name": "will-paginate-angularjs",
+  "version": "0.1.0",
+  "description": "AngularJS directive for will_paginate collections.",
+  "keywords": [
+    "angular","will_paginate","willpaginate","will-paginate","angularjs"
+  ],
+  "homepage": "https://github.com/heavysixer/will_paginate-angularjs",
+  "bugs": "https://github.com/heavysixer/will_paginate-angularjs/issues",
+  "author": {
+    "name": "Mark Daggett",
+    "email": "info@humansized.com",
+    "url": "https://github.com/heavysixer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heavysixer/will_paginate-angularjs"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "connect-livereload": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-open": "~0.2.2",
+    "grunt-bump": "0.0.11",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-ngmin": "0.0.3",
+    "grunt-karma": "~0.7.0"
+  }
+}
