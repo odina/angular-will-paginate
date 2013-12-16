@@ -53,7 +53,7 @@ angular.module('willPaginate')
           :container -- toggles rendering of the DIV container for pagination links, set to
           false only when you are rendering your own pagination markup (default: true)
         */
-      $scope.config = {
+      $scope.defaults = {
         paginationClass: 'pagination',
         previousLabel: 'Previous',
         nextLabel: 'Next',
@@ -143,7 +143,7 @@ angular.module('willPaginate')
         if (typeof newVal === 'undefined') {
           return;
         }
-        $scope.options = angular.extend(angular.copy($scope.config, {}), angular.copy(newVal, {}));
+        $scope.options = angular.extend(angular.copy($scope.defaults, {}), angular.copy(newVal, {}));
         if ($scope.params.currentPage) {
           $scope.render();
         }
