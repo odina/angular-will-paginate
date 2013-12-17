@@ -1,15 +1,19 @@
 angular-will-paginate
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This is a work in progress directive, mostly a sketch to get willPaginate,
-Bootstrap and AngularJS to play nicely together.
+This is a work in progress directive, mostly a functional sketch for now. This
+is how i console myself that there are no tests yet. Anyway, the purpose of this
+directive is to get willPaginate, Bootstrap and AngularJS to play nicely together.
 
-This directive allows you to pass in a JSON representation of a will_paginate
-collection a callback method and an optional config object and paginate that
-collection with AngularJS. Consider this example:
+This directive expects you to pass in a JSON representation of a will_paginate
+collection and a callback method which will be triggered when someone clicks on
+a link. You can also specify an optional config object that overrides some of the
+default behavior.
 
-Be sure to inject the willPaginate module in your application definition. Once
-included the directive will be available. What follows is a simple example:
+*Simple Example*
+
+*Note*: Be sure to inject the willPaginate module in your application definition.
+Once included the directive will be available.
 
 .. code-block:: javascript
 
