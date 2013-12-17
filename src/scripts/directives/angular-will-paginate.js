@@ -23,12 +23,15 @@ angular.module('willPaginate')
     templateUrl: 'template/will_paginate/paginator.html',
     scope: {
       params: '=',
-      config: '='
+      config: '=',
+      onClick: '='
     },
     controller: ['$scope',
       function($scope) {
         $scope.getPage = function(num){
-          console.log(num);
+          if($scope.onClick){
+            $scope.onClick(num);
+          }
         };
       }
     ],
