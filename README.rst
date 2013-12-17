@@ -51,4 +51,7 @@ Your HTML would look something like this:
 
 .. code-block:: html
 
-  .willPaginate(data-params="willPaginateCollection" data-on-click="getPage" data-config="willPaginateConfig")
+  <div class="willPaginate"
+       data-params="willPaginateCollection"
+       data-on-click="getPage"
+       data-config="willPaginateConfig"></div>
