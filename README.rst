@@ -50,4 +50,4 @@ included the directive will be available. What follows is a simple example:
 Your HTML would look something like this:
 .. code-block:: html
 
-  .willPaginate(data-params="willPaginateCollection" data-on-click="getPage" data-config="willPaginateConfig")
+    .willPaginate(data-params="willPaginateCollection" data-on-click="getPage" data-config="willPaginateConfig")
