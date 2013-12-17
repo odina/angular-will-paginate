@@ -99,7 +99,7 @@ module.exports = function(grunt) {
       },
       test: {
         options: {
-          jshintrc: 'test/.jshintrc'
+          jshintrc: '.jshintrc'
         },
         src: ['test/**/*.js']
       }
@@ -180,7 +180,6 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('release', [
-    'test',
     'bump-only',
     'dist',
     'bump-commit'

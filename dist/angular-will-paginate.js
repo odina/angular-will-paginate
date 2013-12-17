@@ -19,19 +19,22 @@
       templateUrl: 'template/will_paginate/paginator.html',
       scope: {
         params: '=',
-        config: '='
+        config: '=',
+        onClick: '='
       },
       controller: [
         '$scope',
         function ($scope) {
           $scope.getPage = function (num) {
-            console.log(num);
+            if ($scope.onClick) {
+              $scope.onClick(num);
+            }
           };
         }
       ],
       link: function ($scope) {
         $scope.collection = [];
-        $scope.config = {
+        $scope.defaults = {
           paginationClass: 'pagination',
           previousLabel: 'Previous',
           nextLabel: 'Next',
@@ -99,7 +102,7 @@
           if (typeof newVal === 'undefined') {
             return;
           }
-          $scope.options = angular.extend(angular.copy($scope.config, {}), angular.copy(newVal, {}));
+          $scope.options = angular.extend(angular.copy($scope.defaults, {}), angular.copy(newVal, {}));
           if ($scope.params.currentPage) {
             $scope.render();
           }
