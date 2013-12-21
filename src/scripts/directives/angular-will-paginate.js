@@ -5,8 +5,8 @@ angular.module('willPaginate')
   '<ul class="{{options.paginationClass}}">' +
   '  <li class="prev" ng-class="{true:\'disabled\'}[params.currentPage == 1]"><span>{{options.previousLabel}}</span></li>' +
   '  <li ng-class="{active:params.currentPage == page.value, disabled:page.kind == \'gap\' }" ng-repeat-start="page in collection">' +
-  '    <span ng-show="params.currentPage == page.value">{{page.value}}</span>' +
-  '    <a ng-hide="params.currentPage == page.value" ng-click="getPage(page.value)">{{page.value}}</a>' +
+  '    <span ng-show="params.currentPage == page.value || page.kind == \'gap\'">{{page.value}}</span>' +
+  '    <a ng-hide="params.currentPage == page.value || page.kind == \'gap\'" ng-click="getPage(page.value)">{{page.value}}</a>' +
   '  </li>' +
   '  <li ng-repeat-end></li>' +
   '  <li class="next" ng-class="{true:\'disabled\'}[params.currentPage == params.totalPages]">' +
@@ -61,7 +61,7 @@ angular.module('willPaginate')
         previousLabel: 'Previous',
         nextLabel: 'Next',
         innerWindow: 1,
-        outerWindow: 2,
+        outerWindow: 1,
         linkSeperator: ' ',
         paramName: 'page',
         params: {},
@@ -77,7 +77,7 @@ angular.module('willPaginate')
         var windowFrom = $scope.params.currentPage - $scope.options.innerWindow;
         var windowTo = $scope.params.currentPage + $scope.options.innerWindow;
 
-        if (windowTo > $scope.params.currentPage) {
+        if (windowTo > $scope.params.totalPages) {
           windowFrom -= windowTo - $scope.params.totalPages;
           windowTo = $scope.params.totalPages;
         }
@@ -91,7 +91,7 @@ angular.module('willPaginate')
         }
 
         // these are always visible
-        for (x = windowFrom; x < windowTo; x++) {
+        for (x = windowFrom; x < windowTo + 1; x++) {
           middle.push({
             value: x
           });
@@ -105,7 +105,7 @@ angular.module('willPaginate')
             });
           }
           left.push({
-            value: '…',
+            value: '\u2026',
             kind: 'gap'
           });
         } else {
@@ -119,7 +119,7 @@ angular.module('willPaginate')
         // right window
         if ($scope.params.totalPages - $scope.options.outerWindow - 2 > middle[middle.length - 1].value) {
           right.push({
-            value: '…',
+            value: '\u2026',
             kind: 'gap'
           });
           for (x = $scope.params.totalPages - $scope.options.outerWindow; x < $scope.params.totalPages; x++) {
@@ -128,6 +128,7 @@ angular.module('willPaginate')
             });
           }
         } else {
+
           // runs into visible pages
           for (x = middle[middle.length - 1].value + 1; x <= $scope.params.totalPages; x++) {
             right.push({
