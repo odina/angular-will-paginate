@@ -1,6 +1,6 @@
 {
   "name": "angular-will-paginate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "AngularJS directive for will_paginate collections.",
   "keywords": [
     "angular","will_paginate","willpaginate","will-paginate","angularjs"
