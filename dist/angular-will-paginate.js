@@ -1,6 +1,6 @@
 /**
  * angular-will-paginate
- * @version v0.1.0 - 2013-12-16
+ * @version v0.1.1 - 2013-12-21
  * @link https://github.com/heavysixer/angular-will-paginate
  * @author Mark Daggett <info@humansized.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -11,7 +11,7 @@
   angular.module('willPaginate').run([
     '$templateCache',
     function ($templateCache) {
-      $templateCache.put('template/will_paginate/paginator.html', '<ul class="{{options.paginationClass}}">' + '  <li class="prev" ng-class="{true:\'disabled\'}[params.currentPage == 1]"><span>{{options.previousLabel}}</span></li>' + '  <li ng-class="{active:params.currentPage == page.value, disabled:page.kind == \'gap\' }" ng-repeat-start="page in collection">' + '    <span ng-show="params.currentPage == page.value">{{page.value}}</span>' + '    <a ng-hide="params.currentPage == page.value" ng-click="getPage(page.value)">{{page.value}}</a>' + '  </li>' + '  <li ng-repeat-end></li>' + '  <li class="next" ng-class="{true:\'disabled\'}[params.currentPage == params.totalPages]">' + '    <a ng-hide="params.currentPage == params.totalPages" ng-click="getPage(params.currentPage + 1)">{{options.nextLabel}}</a>' + '    <span ng-show="params.currentPage == params.totalPages">{{options.nextLabel}}</span>' + '  </li>' + '</ul>');
+      $templateCache.put('template/will_paginate/paginator.html', '<ul class="{{options.paginationClass}}">' + '  <li class="prev" ng-class="{true:\'disabled\'}[params.currentPage == 1]"><span>{{options.previousLabel}}</span></li>' + '  <li ng-class="{active:params.currentPage == page.value, disabled:page.kind == \'gap\' }" ng-repeat-start="page in collection">' + '    <span ng-show="params.currentPage == page.value || page.kind == \'gap\'">{{page.value}}</span>' + '    <a ng-hide="params.currentPage == page.value || page.kind == \'gap\'" ng-click="getPage(page.value)">{{page.value}}</a>' + '  </li>' + '  <li ng-repeat-end></li>' + '  <li class="next" ng-class="{true:\'disabled\'}[params.currentPage == params.totalPages]">' + '    <a ng-hide="params.currentPage == params.totalPages" ng-click="getPage(params.currentPage + 1)">{{options.nextLabel}}</a>' + '    <span ng-show="params.currentPage == params.totalPages">{{options.nextLabel}}</span>' + '  </li>' + '</ul>');
     }
   ]).directive('willPaginate', function () {
     return {
@@ -39,7 +39,7 @@
           previousLabel: 'Previous',
           nextLabel: 'Next',
           innerWindow: 1,
-          outerWindow: 2,
+          outerWindow: 1,
           linkSeperator: ' ',
           paramName: 'page',
           params: {},
@@ -53,7 +53,7 @@
           var x;
           var windowFrom = $scope.params.currentPage - $scope.options.innerWindow;
           var windowTo = $scope.params.currentPage + $scope.options.innerWindow;
-          if (windowTo > $scope.params.currentPage) {
+          if (windowTo > $scope.params.totalPages) {
             windowFrom -= windowTo - $scope.params.totalPages;
             windowTo = $scope.params.totalPages;
           }
@@ -64,7 +64,7 @@
               windowTo = $scope.params.totalPages;
             }
           }
-          for (x = windowFrom; x < windowTo; x++) {
+          for (x = windowFrom; x < windowTo + 1; x++) {
             middle.push({ value: x });
           }
           if ($scope.options.outerWindow + 3 < middle[0].value) {
