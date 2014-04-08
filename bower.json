@@ -1,6 +1,6 @@
 {
   "name": "angular-will-paginate",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "dependencies": {
     "angular": "~1.2.4"
   },
