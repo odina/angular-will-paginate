@@ -3,7 +3,10 @@ angular.module('willPaginate')
 .run(['$templateCache', function($templateCache){
   $templateCache.put('template/will_paginate/paginator.html',
   '<ul class="{{options.paginationClass}}">' +
-  '  <li class="prev" ng-class="{true:\'disabled\'}[params.currentPage == 1]"><span>{{options.previousLabel}}</span></li>' +
+  '  <li class="prev" ng-class="{true:\'disabled\'}[params.currentPage == 1]">' +
+  '    <a ng-hide="params.currentPage == 1" ng-click="getPage(params.currentPage - 1)" class="ng-binding">{{options.previousLabel}}</a>' +
+  '    <span ng-show="params.currentPage == 1" class="ng-binding ng-hide">{{options.previousLabel}}</span>' +
+  '  </li>' +
   '  <li ng-class="{active:params.currentPage == page.value, disabled:page.kind == \'gap\' }" ng-repeat-start="page in collection">' +
   '    <span ng-show="params.currentPage == page.value || page.kind == \'gap\'">{{page.value}}</span>' +
   '    <a ng-hide="params.currentPage == page.value || page.kind == \'gap\'" ng-click="getPage(page.value)">{{page.value}}</a>' +
